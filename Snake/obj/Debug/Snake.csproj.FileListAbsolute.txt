@@ -1,0 +1,7 @@
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\bin\Debug\Snake.exe.config
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\bin\Debug\Snake.exe
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\bin\Debug\Snake.pdb
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\obj\Debug\Snake.exe
+C:\Users\admin\Desktop\Work Docs\Soft Dev Tools\Snake\obj\Debug\Snake.pdb
