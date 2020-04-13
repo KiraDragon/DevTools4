@@ -22,6 +22,7 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+			//intialise different variable
             byte right = 0;
             byte left = 1;
             byte down = 2;
@@ -43,6 +44,7 @@ namespace Snake
             Console.BufferHeight = Console.WindowHeight;
             lastFoodTime = Environment.TickCount;
 
+			//intialise the position of first 5 obstacle
             List<Position> obstacles = new List<Position>()
             {
                 new Position(12, 12),
@@ -51,6 +53,8 @@ namespace Snake
                 new Position(19, 19),
                 new Position(6, 9),
             };
+
+			//produce obstacles item on certain position with Cyan coloured "="
             foreach (Position obstacle in obstacles)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -58,7 +62,9 @@ namespace Snake
                 Console.Write("=");
             }
 
+			//Declare a new variable snakeElements
             Queue<Position> snakeElements = new Queue<Position>();
+			//Initialise the length of the snake
             for (int i = 0; i <= 5; i++)
             {
                 snakeElements.Enqueue(new Position(0, i));
