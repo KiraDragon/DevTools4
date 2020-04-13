@@ -63,7 +63,8 @@ namespace Snake
             {
                 snakeElements.Enqueue(new Position(0, i));
             }
-
+            
+            // Creates new food at a random position (as long as the position has not been taken by an obstacles or the snake) once the previous food has been eaten
             Position food;
             do
             {
@@ -75,6 +76,7 @@ namespace Snake
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("@");
 
+            // Redraws the snake
             foreach (Position position in snakeElements)
             {
                 Console.SetCursorPosition(position.col, position.row);
@@ -82,10 +84,13 @@ namespace Snake
                 Console.Write("*");
             }
 
+            // Loops the game till it ends
             while (true)
             {
+                // Increment 1
                 negativePoints++;
 
+                // Detects key inputs to change direction 
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo userInput = Console.ReadKey();
@@ -107,17 +112,19 @@ namespace Snake
                     }
                 }
 
-                Position snakeHead = snakeElements.Last();
-                Position nextDirection = directions[direction];
+                Position snakeHead = snakeElements.Last();  // Sets the last element of the snake as the snake head 
+                Position nextDirection = directions[direction]; // Sets the direction the snake is moving
 
                 Position snakeNewHead = new Position(snakeHead.row + nextDirection.row,
-                    snakeHead.col + nextDirection.col);
+                    snakeHead.col + nextDirection.col); // Sets the new position of snake head based on the snake's direction 
 
+                // Makes the snake come out from the other side of the window when it passes through the edge of the window 
                 if (snakeNewHead.col < 0) snakeNewHead.col = Console.WindowWidth - 1;
                 if (snakeNewHead.row < 0) snakeNewHead.row = Console.WindowHeight - 1;
                 if (snakeNewHead.row >= Console.WindowHeight) snakeNewHead.row = 0;
                 if (snakeNewHead.col >= Console.WindowWidth) snakeNewHead.col = 0;
 
+                // When snake hits the obstacle or the snake itself, console will show "Game over!" and the total amount of points gathered
                 if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
                 {
                     Console.SetCursorPosition(0, 0);
@@ -130,11 +137,15 @@ namespace Snake
                     return;
                 }
 
+                // Draws the snake's first body after the snake head in every frame
                 Console.SetCursorPosition(snakeHead.col, snakeHead.row);
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.Write("*");
 
+                // Adds the snake head into the snake element
                 snakeElements.Enqueue(snakeNewHead);
+
+                // Draws the snake head depending on which way the snake is facing
                 Console.SetCursorPosition(snakeNewHead.col, snakeNewHead.row);
                 Console.ForegroundColor = ConsoleColor.Gray;
                 if (direction == right) Console.Write(">");
