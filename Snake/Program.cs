@@ -64,7 +64,7 @@ namespace Snake
                 snakeElements.Enqueue(new Position(0, i));
             }
             
-            // Creates new food at a random position (as long as the position has not been taken by an obstacles or the snake) once the previous food has been eaten
+            // Creates new food at a random position (as long as the position has not been taken by an obstacles or the snake)
             Position food;
             do
             {
