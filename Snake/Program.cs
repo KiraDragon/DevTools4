@@ -187,7 +187,7 @@ namespace Snake
                 else
                 {
                     // moving...
-                    //Removes the last position of the snake by writing a space
+                    //Removes the last position of the snake by writing a space, pushing the snake forwards
                     Position last = snakeElements.Dequeue();
                     Console.SetCursorPosition(last.col, last.row);
                     Console.Write(" ");
