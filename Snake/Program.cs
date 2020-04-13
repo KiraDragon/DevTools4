@@ -156,36 +156,49 @@ namespace Snake
 
                 if (snakeNewHead.col == food.col && snakeNewHead.row == food.row)
                 {
+                    //If the snake's head intercepts the location of the food
                     // feeding the snake
                     do
                     {
+                        //Generates a new food at a random postion, that is not in the location of the snake'sbody or the obstacles. 
                         food = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
                             randomNumbersGenerator.Next(0, Console.WindowWidth));
                     }
                     while (snakeElements.Contains(food) || obstacles.Contains(food));
+                    //Resets the timer
                     lastFoodTime = Environment.TickCount;
+                    //Sets the cursor position to the food's row and column
                     Console.SetCursorPosition(food.col, food.row);
+                    //Sets the color of the food
                     Console.ForegroundColor = ConsoleColor.Yellow;
+                    //Writes an @ in the console which serves as food
                     Console.Write("@");
                     sleepTime--;
 
+                    //Creates a new Position named obstacle
                     Position obstacle = new Position();
                     do
                     {
+                        //When the snake collides with the food, it sets obstacle to a new random position that does not contain the snake, the obstacle or food
                         obstacle = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
                             randomNumbersGenerator.Next(0, Console.WindowWidth));
                     }
                     while (snakeElements.Contains(obstacle) ||
                         obstacles.Contains(obstacle) ||
                         (food.row != obstacle.row && food.col != obstacle.row));
+                    //Adds the obstacle into an array of obstacles
                     obstacles.Add(obstacle);
+                    //Sets the cursor position the the obstacles column and row
                     Console.SetCursorPosition(obstacle.col, obstacle.row);
+                    //Sets the color of the obstacle
                     Console.ForegroundColor = ConsoleColor.Cyan;
+                    //Writes = in the console as visualisation of the obstacle
                     Console.Write("=");
                 }
                 else
                 {
                     // moving...
+                    //Removes the last position of the snake by writing a space, pushing the snake forwards
                     Position last = snakeElements.Dequeue();
                     Console.SetCursorPosition(last.col, last.row);
                     Console.Write(" ");
@@ -193,20 +206,27 @@ namespace Snake
 
                 if (Environment.TickCount - lastFoodTime >= foodDissapearTime)
                 {
+                    //If the time limit has expired, Negative points are increased by 50 
                     negativePoints = negativePoints + 50;
+                    //Sets the cursor position to where the food was and deletes it by writing a space over it
                     Console.SetCursorPosition(food.col, food.row);
                     Console.Write(" ");
                     do
                     {
+                        //Creates a new food at another random postition that does not contain the snake's body or obstacles
                         food = new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
                             randomNumbersGenerator.Next(0, Console.WindowWidth));
                     }
                     while (snakeElements.Contains(food) || obstacles.Contains(food));
+                    //Resets the timer
                     lastFoodTime = Environment.TickCount;
                 }
 
+                //Sets the cursor position to the new column and row with the food
                 Console.SetCursorPosition(food.col, food.row);
+                //Change the color to yellow
                 Console.ForegroundColor = ConsoleColor.Yellow;
+                //Writes an @ to represent food
                 Console.Write("@");
 
                 sleepTime -= 0.01;
