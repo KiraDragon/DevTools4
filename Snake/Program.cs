@@ -66,7 +66,7 @@ namespace Snake
 			//Declare a new variable snakeElements
             Queue<Position> snakeElements = new Queue<Position>();
 			//Initialise the length of the snake
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 snakeElements.Enqueue(new Position(0, i));
             }
@@ -141,6 +141,7 @@ namespace Snake
                     //if (userPoints < 0) userPoints = 0;
                     userPoints = Math.Max(userPoints, 0);
                     Console.WriteLine("Your points are: {0}", userPoints);
+                    Console.ReadLine(); 
                     return;
                 }
 
