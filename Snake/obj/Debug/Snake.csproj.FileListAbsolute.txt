@@ -12,3 +12,10 @@ C:\Users\admin\Documents\GitHub\DevTools4\Snake\obj\Debug\Snake.csprojAssemblyRe
 C:\Users\admin\Documents\GitHub\DevTools4\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
 C:\Users\admin\Documents\GitHub\DevTools4\Snake\obj\Debug\Snake.exe
 C:\Users\admin\Documents\GitHub\DevTools4\Snake\obj\Debug\Snake.pdb
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\bin\Debug\Snake.exe.config
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\bin\Debug\Snake.exe
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\bin\Debug\Snake.pdb
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\obj\Debug\Snake.exe
+C:\Users\Karyn Chong HX\Documents\DevTools4\Snake\obj\Debug\Snake.pdb

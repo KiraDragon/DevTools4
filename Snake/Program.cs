@@ -136,11 +136,17 @@ namespace Snake
                 {
                     Console.SetCursorPosition(0, 0);
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Game over!");
+                    string gameover = "Game over!";
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.Write(new string(' ', (Console.WindowWidth - gameover.Length) / 2));
+                    Console.WriteLine(gameover);
                     int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
                     //if (userPoints < 0) userPoints = 0;
                     userPoints = Math.Max(userPoints, 0);
-                    Console.WriteLine("Your points are: {0}", userPoints);
+
+                    string finalPoints = "Your points are: {0}";
+                    Console.Write(new string(' ', (Console.WindowWidth - finalPoints.Length) / 2));
+                    Console.WriteLine(finalPoints, userPoints);
                     Console.ReadLine(); 
                     return;
                 }
