@@ -161,32 +161,12 @@ namespace Snake
                     Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
                     Console.Write(new string(' ', (Console.WindowWidth - gameover.Length) / 2));
                     Console.WriteLine(gameover);
-<<<<<<< HEAD
-                    userPoints = (snakeElements.Count - 4) * 100 - negativePoints;
-                    //if (userPoints < 0) userPoints = 0;
-||||||| 1df7aa4
-                    int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
-                    //if (userPoints < 0) userPoints = 0;
-=======
-                    int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
                     if (userPoints < 0) userPoints = 0;
->>>>>>> 9599bc77ed13bf9dc2d2db0ccc0a8fa0f531a12c
                     userPoints = Math.Max(userPoints, 0);
-<<<<<<< HEAD
-                    
-                    Console.Write(new string(' ', (Console.WindowWidth - 20) / 2));
-                    Console.WriteLine("Your points are: {0}", userPoints);
-||||||| 1df7aa4
-
-                    string finalPoints = "Your points are: {0}";
-                    Console.Write(new string(' ', (Console.WindowWidth - finalPoints.Length) / 2));
-                    Console.WriteLine(finalPoints, userPoints);
-=======
                     SaveScore(userName, userPoints); 
                     string finalPoints = "Your points are: {0}";
                     Console.Write(new string(' ', (Console.WindowWidth - finalPoints.Length) / 2));
                     Console.WriteLine(finalPoints, userPoints);
->>>>>>> 9599bc77ed13bf9dc2d2db0ccc0a8fa0f531a12c
                     Console.ReadLine(); 
                     return;
                 }
