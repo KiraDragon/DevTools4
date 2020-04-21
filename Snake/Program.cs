@@ -91,9 +91,16 @@ namespace Snake
                 Console.Write("*");
             }
 
+            int userPoints = 0;
             // Loops the game till it ends
             while (true)
             {
+                userPoints = (snakeElements.Count - 4) * 100 - negativePoints;
+                Console.SetCursorPosition(0, 0);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+
+                Console.WriteLine("Score: " + userPoints + " ");
+            
                 // Increment 1
                 negativePoints++;
 
@@ -124,7 +131,7 @@ namespace Snake
 
                 Position snakeNewHead = new Position(snakeHead.row + nextDirection.row,
                     snakeHead.col + nextDirection.col); // Sets the new position of snake head based on the snake's direction 
-
+                
                 // Makes the snake come out from the other side of the window when it passes through the edge of the window 
                 if (snakeNewHead.col < 0) snakeNewHead.col = Console.WindowWidth - 1;
                 if (snakeNewHead.row < 0) snakeNewHead.row = Console.WindowHeight - 1;
@@ -140,17 +147,16 @@ namespace Snake
                     Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
                     Console.Write(new string(' ', (Console.WindowWidth - gameover.Length) / 2));
                     Console.WriteLine(gameover);
-                    int userPoints = (snakeElements.Count - 6) * 100 - negativePoints;
+                    userPoints = (snakeElements.Count - 4) * 100 - negativePoints;
                     //if (userPoints < 0) userPoints = 0;
                     userPoints = Math.Max(userPoints, 0);
-
-                    string finalPoints = "Your points are: {0}";
-                    Console.Write(new string(' ', (Console.WindowWidth - finalPoints.Length) / 2));
-                    Console.WriteLine(finalPoints, userPoints);
+                    
+                    Console.Write(new string(' ', (Console.WindowWidth - 20) / 2));
+                    Console.WriteLine("Your points are: {0}", userPoints);
                     Console.ReadLine(); 
                     return;
                 }
-
+                
                 // Draws the snake's first body after the snake head in every frame
                 Console.SetCursorPosition(snakeHead.col, snakeHead.row);
                 Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -166,8 +172,7 @@ namespace Snake
                 if (direction == left) Console.Write("<");
                 if (direction == up) Console.Write("^");
                 if (direction == down) Console.Write("v");
-
-
+                
                 if (snakeNewHead.col == food.col && snakeNewHead.row == food.row)
                 {
                     //If the snake's head intercepts the location of the food
@@ -200,6 +205,7 @@ namespace Snake
                     while (snakeElements.Contains(obstacle) ||
                         obstacles.Contains(obstacle) ||
                         (food.row != obstacle.row && food.col != obstacle.row));
+
                     //Adds the obstacle into an array of obstacles
                     obstacles.Add(obstacle);
                     //Sets the cursor position the the obstacles column and row
