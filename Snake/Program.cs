@@ -40,7 +40,7 @@ namespace Snake
             byte down = 2;
             byte up = 3;
             int lastFoodTime = 0;
-            int foodDissapearTime = 16000;
+            int foodDissapearTime = 8000;
             int negativePoints = 0;
             string userName;
             Console.WriteLine("Enter your name: ");
@@ -62,16 +62,11 @@ namespace Snake
 			//intialise the position of first 5 obstacle
             List<Position> obstacles = new List<Position>()
             {
-                new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
-                            randomNumbersGenerator.Next(0, Console.WindowWidth)),
-                new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
-                            randomNumbersGenerator.Next(0, Console.WindowWidth)),
-                new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
-                            randomNumbersGenerator.Next(0, Console.WindowWidth)),
-                new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
-                            randomNumbersGenerator.Next(0, Console.WindowWidth)),
-                new Position(randomNumbersGenerator.Next(0, Console.WindowHeight),
-                            randomNumbersGenerator.Next(0, Console.WindowWidth)),
+                new Position(12, 12),
+                new Position(14, 20),
+                new Position(7, 7),
+                new Position(19, 19),
+                new Position(6, 9),
             };
 
 			//produce obstacles item on certain position with Cyan coloured "="
