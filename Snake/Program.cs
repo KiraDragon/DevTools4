@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Threading;
 using System.IO; 
+using System.Media; 
 namespace Snake
 {
   //Creates a data structure position that is made out of a row and a column. 
@@ -23,18 +24,25 @@ namespace Snake
     {
         static public void SaveScore(string username, int score)
         {
-            StreamWriter sw = new StreamWriter("C:\\Users\\admin\\Documents\\GitHub\\DevTools4\\Snake\\scoreboard.txt"); 
+            StreamWriter sw = new StreamWriter("../../scoreboard.txt"); 
             string entry; 
             entry = "{0}: {1} points"; 
             entry = string.Format(entry, username, score.ToString()); 
             sw.WriteLine(entry);
             sw.Close(); 
         }
+
+        static public void PlayMusic()
+        {
+            System.Media.SoundPlayer bgm = new System.Media.SoundPlayer(); 
+            bgm.SoundLocation = "../../royaltyfreebgm.wav";
+            bgm.PlayLooping(); 
+        }
         
         static void Main(string[] args)
         {
-            
-			//intialise different variable
+            PlayMusic(); 
+  			//intialise different variable
             byte right = 0;
             byte left = 1;
             byte down = 2;
@@ -189,6 +197,7 @@ namespace Snake
                 
                 if (snakeNewHead.col == food.col && snakeNewHead.row == food.row)
                 {
+                    Console.Beep(); 
                     //If the snake's head intercepts the location of the food
                     // feeding the snake
                     do
@@ -201,7 +210,7 @@ namespace Snake
                     //Resets the timer
                     lastFoodTime = Environment.TickCount;
                     //Sets the cursor position to the food's row and column
-                    Console.SetCursorPosition(food.col, food.row);
+                    Console.SetCursorPosition(food.col, food.row); 
                     //Sets the color of the food
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     //Writes an @ in the console which serves as food
