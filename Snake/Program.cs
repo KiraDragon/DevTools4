@@ -128,6 +128,21 @@ namespace Snake
                 Console.ForegroundColor = ConsoleColor.Cyan;
 
                 Console.WriteLine("Score: " + userPoints + " ");
+
+                     // When the user gets 500 points, the user would win
+                if (userPoints >= 500)
+                {
+                    Console.SetCursorPosition(0, 0);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    string youwin = "YOU WIN!";
+                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
+                    Console.Write(new string(' ', (Console.WindowWidth - youwin.Length) / 2));
+                    Console.WriteLine(youwin);
+                    SaveScore(userName, userPoints); 
+                    Console.ReadLine();
+                    return;
+                }
+                
             
                 // Increment 1
                 negativePoints++;
@@ -185,19 +200,6 @@ namespace Snake
                     return;
                 }
 
-                // When the user gets 500 points, the user would win
-                if (userPoints >= 500)
-                {
-                    Console.SetCursorPosition(0, 0);
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    string youwin = "YOU WIN!";
-                    Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
-                    Console.Write(new string(' ', (Console.WindowWidth - youwin.Length) / 2));
-                    Console.WriteLine(youwin);
-                    Console.ReadLine();
-                    return;
-                }
-                
                 // Draws the snake's first body after the snake head in every frame
                 Console.SetCursorPosition(snakeHead.col, snakeHead.row);
                 Console.ForegroundColor = ConsoleColor.DarkGray;
